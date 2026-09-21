@@ -1,0 +1,1203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+===========================================================================
+  FRANCIELE TELLES · SAÚDE & BEM-ESTAR
+  Clínica Estética e Terapias de Spa · Flores da Cunha / RS
+  Página única, versão 3. HTML estático, sem framework.
+---------------------------------------------------------------------------
+  IDENTIDADE (extraída da logo e do Instagram @francieletellesclinica)
+  Gradiente da marca: azul #3E93D1 · índigo #6277BD · violeta #9A7BB6
+  Tagline oficial: "Saúde & Bem-Estar"
+  Fonte da marca: Caviar Dreams. Na web, Jost (equivalente geométrico com
+  licença aberta) e Fraunces nos títulos.
+---------------------------------------------------------------------------
+  REGRAS DE CONTEÚDO
+  · A clínica NÃO vende produtos. Nenhuma menção a venda de produto.
+  · Atendimento EXCLUSIVO para mulheres. Todo o texto usa o feminino.
+  · Nenhum preço exposto, por decisão da Franciele.
+  · Avaliações exibidas: apenas de clientes mulheres, no texto original.
+---------------------------------------------------------------------------
+  IMAGENS JÁ APLICADAS
+  · Hero: Franciele recebendo na porta (webp, srcset de 800 e 1121)
+  · Sobre: retrato de jaleco na sala (webp, srcset de 800 e 1087)
+  · Onde fica: sala de atendimento (webp, srcset de 900 e 1448)
+  · Compartilhamento: og gerado a partir da foto da sala
+  A seção do Instagram é uma chamada para seguir o perfil, sem feed embutido.
+  Decisão deliberada: widget de terceiro degrada desempenho e feed parado
+  envelhece o site. Caminho de upgrade documentado em docs/instagram.md.
+
+  ITENS A CONFIRMAR ANTES DE PUBLICAR
+  1. Horário de funcionamento real (aqui e no JSON-LD)
+  2. Política de cancelamento e atraso (texto da FAQ é rascunho)
+  4. Duração de cada serviço
+  5. Formação exata, instituições e registro profissional
+  6. Latitude e longitude para o JSON-LD
+  7. Se há mesmo estacionamento por perto (citado na FAQ)
+---------------------------------------------------------------------------
+  IMAGENS
+  Blocos ".ph" são reservados. Substitua a div inteira por
+  <img src="img/NOME.jpg" alt="..." loading="lazy">.
+===========================================================================
+-->
+
+<title>Estética e Terapias de Spa em Flores da Cunha | Franciele Telles</title>
+<meta name="description" content="Clínica de estética facial, estética corporal, massoterapia e terapias de spa no Centro de Flores da Cunha. Atendimento individual, com hora marcada e sem pressa, com Franciele Telles desde 2016.">
+<link rel="canonical" href="https://francieletelles.com.br/">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#6277BD">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Franciele Telles">
+<meta property="og:title" content="Estética e Terapias de Spa em Flores da Cunha | Franciele Telles">
+<meta property="og:description" content="Estética facial, estética corporal, massoterapia e terapias de spa no Centro de Flores da Cunha, com atendimento individual e sem pressa.">
+<meta property="og:url" content="https://francieletelles.com.br/">
+<meta property="og:image" content="https://francieletelles.com.br/img/og-clinica-estetica-flores-da-cunha.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/png" href="img/logo-mark.png">
+<link rel="apple-touch-icon" href="img/logo-mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- GTM · parte 1 (cole o script do container aqui) -->
+
+<style>
+@layer reset, tokens, base, layout, components, motion;
+
+/* ===================== RESET ===================== */
+@layer reset{
+  *,*::before,*::after{box-sizing:border-box}
+  *{margin:0}
+  html{-webkit-text-size-adjust:100%}
+  img,svg,video{display:block;max-width:100%}
+  img{height:auto}
+  a{color:inherit}
+  summary::-webkit-details-marker{display:none}
+}
+
+/* ===================== TOKENS ===================== */
+@layer tokens{
+  @property --ang{syntax:'<angle>';inherits:false;initial-value:115deg}
+  :root{
+    --blue:#3E93D1;
+    --indigo:#6277BD;
+    --violet:#9A7BB6;
+    --brand:linear-gradient(var(--ang),var(--blue) 0%,var(--indigo) 48%,var(--violet) 100%);
+
+    --ink:#1B2038;
+    --ink-2:#4B5273;
+    --ink-3:#858AA3;
+    --paper:#FCFCFE;
+    --paper-2:#F5F5FB;
+    --lilac:#EEEEF8;
+    --line:color-mix(in oklab,var(--indigo) 20%,transparent);
+    --line-soft:color-mix(in oklab,var(--indigo) 10%,transparent);
+
+    --f-display:'Fraunces',Georgia,'Times New Roman',serif;
+    --f-sans:'Jost',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+    --t-xs:clamp(.72rem,.70rem + .10vw,.78rem);
+    --t-sm:clamp(.88rem,.85rem + .15vw,.95rem);
+    --t-base:clamp(1rem,.96rem + .22vw,1.09rem);
+    --t-lg:clamp(1.1rem,1.02rem + .36vw,1.26rem);
+    --t-xl:clamp(1.45rem,1.24rem + 1vw,2.05rem);
+    --t-2xl:clamp(1.95rem,1.5rem + 2vw,3.2rem);
+    --t-3xl:clamp(2.5rem,1.7rem + 3.7vw,4.9rem);
+
+    --gut:clamp(20px,4vw,40px);
+    --sect:clamp(72px,9vw,132px);
+    --maxw:1240px;
+    --r:18px;
+    --r-lg:28px;
+
+    color-scheme:light;
+  }
+  @supports (interpolate-size:allow-keywords){:root{interpolate-size:allow-keywords}}
+}
+
+/* ===================== BASE ===================== */
+@layer base{
+  html{scroll-behavior:smooth;scroll-padding-top:96px}
+  body{
+    background:var(--paper);color:var(--ink);
+    font-family:var(--f-sans);font-weight:300;font-size:var(--t-base);line-height:1.64;
+    letter-spacing:.004em;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+    hyphens:manual;              /* nunca hifenizar automaticamente */
+    overflow-wrap:break-word;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--f-display);font-weight:400;line-height:1.08;
+    letter-spacing:-.02em;text-wrap:balance;
+  }
+  h1{font-size:var(--t-3xl)}
+  h2{font-size:var(--t-2xl)}
+  h3{font-size:var(--t-xl)}
+  p,li,dd{text-wrap:pretty}
+  p{margin-block:0 1em}
+  p:last-child{margin-bottom:0}
+  ::selection{background:color-mix(in oklab,var(--indigo) 22%,transparent)}
+  :focus-visible{outline:2px solid var(--indigo);outline-offset:3px;border-radius:6px}
+}
+
+/* ===================== LAYOUT ===================== */
+@layer layout{
+  .wrap{width:min(100% - var(--gut)*2,var(--maxw));margin-inline:auto}
+  .wrap-narrow{width:min(100% - var(--gut)*2,880px);margin-inline:auto}
+  section{padding-block:var(--sect);position:relative}
+  .tone{background:color-mix(in oklab,var(--paper-2) 72%,transparent)}
+
+  /* cabeçalho de seção em duas colunas: nunca deixa metade da tela vazia */
+  .sec-head{display:grid;gap:22px}
+  @media(min-width:900px){
+    .sec-head{
+      grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
+      gap:clamp(40px,6vw,88px);align-items:end;
+    }
+    .sec-head>:last-child{padding-bottom:6px}
+  }
+  .sec-head h2{margin-block:18px 0}
+
+  .split{display:grid;gap:clamp(36px,5vw,72px)}
+  @media(min-width:920px){
+    .split{grid-template-columns:1fr 1fr;align-items:center}
+    .split--wide-left{grid-template-columns:1.12fr .88fr}
+    .split--wide-right{grid-template-columns:.88fr 1.12fr}
+  }
+  .mt-l{margin-top:clamp(40px,5vw,72px)}
+  .mt-m{margin-top:clamp(26px,3vw,38px)}
+}
+
+/* ===================== COMPONENTES ===================== */
+@layer components{
+
+  /* --- fundo --- */
+  .mesh{
+    position:fixed;inset:0;z-index:-2;pointer-events:none;
+    background:
+      radial-gradient(58vw 46vw at 8% -6%,color-mix(in oklab,var(--blue) 14%,transparent),transparent 62%),
+      radial-gradient(52vw 44vw at 98% 12%,color-mix(in oklab,var(--violet) 13%,transparent),transparent 64%),
+      radial-gradient(70vw 50vw at 50% 108%,color-mix(in oklab,var(--indigo) 9%,transparent),transparent 66%);
+  }
+  .grain{
+    position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/></filter><rect width='180' height='180' filter='url(%23n)' opacity='.55'/></svg>");
+  }
+
+  /* --- tipografia --- */
+  .eyebrow{
+    font-size:var(--t-xs);letter-spacing:.22em;text-transform:uppercase;font-weight:400;
+    color:var(--indigo);display:flex;align-items:center;gap:12px;
+  }
+  .eyebrow::before{content:"";width:28px;height:1px;background:var(--brand);flex:none}
+  .lead{font-size:var(--t-lg);color:var(--ink-2);font-weight:300;line-height:1.56;max-width:52ch}
+  .muted{color:var(--ink-2);font-size:var(--t-sm);max-width:56ch}
+  .grad-text{background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .ital{font-style:italic;font-variation-settings:'SOFT' 40,'WONK' 1}
+
+  /* --- botões --- */
+  .btn{
+    --bg:var(--ink);--fg:#fff;
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:15px 28px;border-radius:999px;text-decoration:none;
+    font-size:var(--t-sm);font-weight:400;letter-spacing:.02em;
+    background:var(--bg);color:var(--fg);border:1px solid transparent;
+    position:relative;overflow:hidden;isolation:isolate;
+    transition:transform .25s cubic-bezier(.2,.8,.2,1),box-shadow .25s ease,color .2s ease,border-color .2s ease;
+  }
+  .btn::before{
+    content:"";position:absolute;inset:0;z-index:-1;background:var(--brand);
+    transform:translateY(101%);transition:transform .38s cubic-bezier(.2,.8,.2,1);
+  }
+  .btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px -12px color-mix(in oklab,var(--indigo) 60%,transparent)}
+  .btn:hover::before{transform:translateY(0)}
+  .btn--brand{--bg:transparent;color:#fff}
+  .btn--brand::before{transform:translateY(0)}
+  .btn--brand:hover::before{filter:saturate(1.15)}
+  .btn--line{--bg:transparent;--fg:var(--ink);border-color:var(--line)}
+  .btn--line:hover{color:#fff;border-color:transparent}
+  .btn--light{--bg:#fff;--fg:var(--ink)}
+  .btn--light:hover{color:#fff}
+  .btn--sm{padding:11px 20px}
+  .btn svg{width:17px;height:17px;flex:none}
+  .actions{display:flex;flex-wrap:wrap;gap:12px}
+
+  /* --- cabeçalho --- */
+  .site-head{
+    position:sticky;top:0;z-index:60;
+    background:color-mix(in oklab,var(--paper) 84%,transparent);
+    backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);
+    border-bottom:1px solid var(--line-soft);
+    padding-block:14px;
+  }
+  .head-in{display:flex;align-items:center;gap:20px}
+  .brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+  .brand img{width:42px;height:42px;object-fit:contain}
+  .brand-txt{display:flex;flex-direction:column;line-height:1}
+  .brand-txt b{font-family:var(--f-display);font-weight:400;font-size:1.1rem;letter-spacing:-.012em;white-space:nowrap}
+  .brand-txt span{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-3);margin-top:5px;white-space:nowrap}
+  .site-nav{margin-inline-start:auto;display:none;gap:clamp(18px,2.4vw,34px)}
+  @media(min-width:1040px){.site-nav{display:flex}}
+  .site-nav a{text-decoration:none;font-size:var(--t-sm);color:var(--ink-2);position:relative;padding-block:4px;white-space:nowrap}
+  .site-nav a::after{
+    content:"";position:absolute;left:0;bottom:0;width:100%;height:1px;background:var(--brand);
+    transform:scaleX(0);transform-origin:right;transition:transform .35s cubic-bezier(.2,.8,.2,1);
+  }
+  .site-nav a:hover{color:var(--ink)}
+  .site-nav a:hover::after{transform:scaleX(1);transform-origin:left}
+  .head-cta{margin-inline-start:auto}
+  @media(min-width:1040px){.head-cta{margin-inline-start:clamp(18px,2.4vw,34px)}}
+
+  /* --- hero --- */
+  .hero{padding-block:clamp(48px,6vw,84px) clamp(56px,7vw,100px)}
+  .hero-grid{display:grid;gap:clamp(40px,5vw,68px);align-items:center}
+  @media(min-width:920px){.hero-grid{grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr)}}
+  .hero h1{margin-block:22px 24px}
+  .hero .lead{max-width:46ch}
+  .hero .actions{margin-top:32px}
+  .hero-media{position:relative}
+  .hero-media .ph,.hero-media img{
+    border-radius:clamp(72px,13vw,150px) clamp(72px,13vw,150px) var(--r-lg) var(--r-lg);
+    aspect-ratio:4/5;width:100%;object-fit:cover;object-position:52% 26%;
+  }
+  .hero-badge{
+    position:absolute;left:0;bottom:26px;background:#fff;border:1px solid var(--line-soft);
+    border-radius:var(--r);padding:14px 20px;display:flex;align-items:center;gap:14px;
+    box-shadow:0 18px 40px -22px color-mix(in oklab,var(--indigo) 70%,transparent);
+  }
+  .hero-badge b{font-family:var(--f-display);font-size:1.6rem;font-weight:400;line-height:1;letter-spacing:-.02em}
+  .hero-badge span{font-size:var(--t-xs);color:var(--ink-2);line-height:1.35;display:block;white-space:nowrap}
+  .stars{color:var(--indigo);letter-spacing:2px;font-size:.8rem;line-height:1}
+
+  /* --- ticker --- */
+  .ticker{
+    border-block:1px solid var(--line-soft);padding-block:20px;overflow:hidden;
+    background:color-mix(in oklab,var(--lilac) 55%,transparent);
+  }
+  .ticker-track{display:flex;width:max-content;will-change:transform}
+  .ticker-track span{
+    font-family:var(--f-display);font-size:clamp(1.05rem,2vw,1.5rem);font-style:italic;
+    color:var(--ink-2);padding-inline:clamp(18px,3vw,36px);white-space:nowrap;
+    display:flex;align-items:center;gap:clamp(18px,3vw,36px);
+  }
+  .ticker-track span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--brand);flex:none}
+
+  /* --- números --- */
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(26px,3.5vw,40px)}
+  @media(min-width:880px){.stats{grid-template-columns:repeat(3,1fr)}}
+  .stat{border-top:1px solid var(--line);padding-top:18px}
+  .stat b{
+    display:block;font-family:var(--f-display);font-size:clamp(2.2rem,4.2vw,3.2rem);
+    font-weight:400;line-height:1;letter-spacing:-.035em;
+    background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .stat span{display:block;font-size:var(--t-sm);color:var(--ink-2);margin-top:10px;max-width:24ch}
+
+  /* --- manifesto --- */
+  .manifesto{
+    font-family:var(--f-display);font-size:clamp(1.55rem,3vw,2.5rem);line-height:1.2;
+    letter-spacing:-.022em;font-weight:300;text-wrap:balance;
+  }
+
+  /* --- eixos --- */
+  .axis{padding-block:0 clamp(40px,4.5vw,64px)}
+  .axis + .axis{border-top:1px solid var(--line-soft);padding-top:clamp(40px,4.5vw,64px)}
+  .axis-head{display:grid;gap:16px;margin-bottom:clamp(26px,3vw,38px)}
+  @media(min-width:900px){
+    .axis-head{grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);gap:clamp(36px,5vw,80px);align-items:end}
+    .axis-head>:last-child{padding-bottom:5px}
+  }
+  .axis-num{
+    font-family:var(--f-display);font-size:var(--t-sm);letter-spacing:.14em;color:var(--indigo);
+    display:block;margin-bottom:8px;
+  }
+  .svcs{display:grid;border-bottom:1px solid var(--line-soft)}
+  @media(min-width:860px){
+    .svcs{grid-template-columns:1fr 1fr;column-gap:clamp(30px,4vw,68px)}
+    /* a hairline de baixo só embaixo da última linha de cada coluna */
+    .svcs>:nth-last-child(-n+2){border-bottom:0}
+  }
+  .svc{
+    display:grid;grid-template-columns:minmax(0,1fr) 22px;gap:5px 16px;align-items:start;
+    padding:19px 0;border-top:1px solid var(--line-soft);text-decoration:none;
+    position:relative;isolation:isolate;
+    transition:padding-inline .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .svc::before{
+    content:"";position:absolute;inset:0 -14px;z-index:-1;border-radius:12px;
+    background:color-mix(in oklab,var(--indigo) 6%,transparent);
+    opacity:0;transition:opacity .3s ease;
+  }
+  .svc:hover{padding-inline:14px}
+  .svc:hover::before{opacity:1}
+  .svc-name{
+    grid-column:1;font-size:1.04rem;font-weight:500;letter-spacing:-.005em;line-height:1.3;
+    transition:color .25s ease;
+  }
+  .svc:hover .svc-name{
+    background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .svc-desc{grid-column:1;font-size:var(--t-sm);color:var(--ink-2);line-height:1.55;max-width:48ch}
+  .svc-go{
+    grid-column:2;grid-row:1;width:20px;height:20px;margin-top:3px;stroke:var(--indigo);
+    opacity:0;translate:-8px 0;transition:opacity .3s ease,translate .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .svc:hover .svc-go,.svc:focus-visible .svc-go{opacity:1;translate:0 0}
+
+  /* --- placeholders --- */
+  .ph{
+    position:relative;border-radius:var(--r);overflow:hidden;
+    background:linear-gradient(135deg,color-mix(in oklab,var(--blue) 20%,#fff),color-mix(in oklab,var(--violet) 22%,#fff));
+    border:1px dashed color-mix(in oklab,var(--indigo) 32%,transparent);
+    display:grid;place-items:center;text-align:center;padding:22px;
+  }
+  .ph b{display:block;font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;
+    color:color-mix(in oklab,var(--ink) 62%,#fff);font-weight:500}
+  .ph i{display:block;font-style:normal;font-size:.76rem;line-height:1.5;margin-top:8px;
+    color:color-mix(in oklab,var(--ink) 48%,#fff);overflow-wrap:anywhere}
+  .ph--wide{aspect-ratio:16/10}
+  .ph--sq{aspect-ratio:1/1}
+
+  /* --- fotos reais --- */
+  .shot{width:100%;object-fit:cover;border-radius:var(--r-lg);background:var(--lilac)}
+  .shot--wide{aspect-ratio:16/10}
+  figure{margin:0}
+  figcaption{
+    margin-top:12px;font-size:var(--t-xs);letter-spacing:.04em;color:var(--ink-3);
+  }
+
+  /* --- sobre --- */
+  .about-media .ph,.about-media img{aspect-ratio:4/5;border-radius:var(--r-lg);width:100%;object-fit:cover}
+  .creds{list-style:none;padding:0;margin-top:30px;display:grid}
+  .creds li{
+    display:flex;align-items:baseline;gap:14px;padding-block:13px;
+    border-top:1px solid var(--line-soft);font-size:var(--t-sm);color:var(--ink-2);
+  }
+  .creds li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);flex:none;translate:0 -2px}
+
+  /* --- plano --- */
+  .plan{
+    position:relative;border-radius:var(--r-lg);overflow:hidden;color:#fff;
+    padding:clamp(36px,5.5vw,68px) clamp(26px,5vw,60px);
+    background:var(--brand);isolation:isolate;
+  }
+  .plan::after{
+    content:"";position:absolute;inset:0;z-index:-1;opacity:.26;
+    background:radial-gradient(60% 80% at 82% 18%,#fff,transparent 70%);
+  }
+  .plan h2,.plan .eyebrow{color:#fff}
+  .plan .eyebrow::before{background:rgba(255,255,255,.75)}
+  .plan p{color:rgba(255,255,255,.9);max-width:44ch}
+  .plan-grid{display:grid;gap:clamp(32px,4vw,60px)}
+  @media(min-width:920px){.plan-grid{grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);align-items:center}}
+  .plan-list{list-style:none;padding:0;display:grid}
+  .plan-list li{
+    display:flex;align-items:flex-start;gap:14px;padding-block:15px;
+    border-top:1px solid rgba(255,255,255,.22);font-size:var(--t-sm);color:rgba(255,255,255,.95);
+  }
+  .plan-list li svg{width:18px;height:18px;flex:none;margin-top:4px;stroke:#fff}
+
+  /* --- passos --- */
+  .steps{display:grid;gap:clamp(26px,3vw,34px);counter-reset:s}
+  @media(min-width:700px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1060px){.steps{grid-template-columns:repeat(4,1fr)}}
+  .step{position:relative;padding-top:22px;border-top:1px solid var(--line)}
+  .step::before{
+    counter-increment:s;content:"0" counter(s);
+    font-family:var(--f-display);font-size:var(--t-sm);letter-spacing:.1em;
+    background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent;
+    display:block;margin-bottom:12px;
+  }
+  .step h3{font-family:var(--f-sans);font-size:1.04rem;font-weight:500;letter-spacing:0;margin-bottom:8px;text-wrap:balance}
+  .step p{font-size:var(--t-sm);color:var(--ink-2)}
+
+  /* --- avaliações --- */
+  .revs{display:grid;gap:16px}
+  @media(min-width:700px){.revs{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1080px){.revs{grid-template-columns:repeat(3,1fr)}}
+  .rev{
+    background:#fff;border:1px solid var(--line-soft);border-radius:var(--r);
+    padding:28px 26px;position:relative;display:flex;flex-direction:column;gap:14px;
+  }
+  .rev::before{
+    content:"\201C";position:absolute;top:2px;right:20px;font-family:var(--f-display);
+    font-size:4.6rem;line-height:1;color:color-mix(in oklab,var(--indigo) 14%,transparent);
+  }
+  .rev p{font-size:var(--t-sm);line-height:1.62;position:relative;flex:1}
+  .rev cite{font-style:normal;font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3)}
+
+  /* --- instagram --- */
+  .ig-call{
+    display:grid;gap:28px;align-items:center;
+    border:1px solid var(--line-soft);border-radius:var(--r-lg);
+    background:color-mix(in oklab,var(--lilac) 58%,transparent);
+    padding:clamp(30px,4vw,54px) clamp(24px,4vw,54px);
+  }
+  @media(min-width:880px){.ig-call{grid-template-columns:minmax(0,1fr) auto;gap:clamp(36px,5vw,72px)}}
+  .ig-handle{
+    display:flex;align-items:center;gap:13px;margin-top:20px;
+    font-family:var(--f-display);font-size:clamp(1.25rem,2.2vw,1.7rem);
+    letter-spacing:-.02em;line-height:1;
+    background:var(--brand);-webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .ig-handle svg{width:26px;height:26px;flex:none;stroke:var(--indigo);color:var(--indigo)}
+
+  /* --- faq --- */
+  .faq{border-top:1px solid var(--line)}
+  .faq details{border-bottom:1px solid var(--line)}
+  .faq summary{
+    display:flex;align-items:flex-start;gap:20px;padding-block:22px;cursor:pointer;list-style:none;
+    font-size:var(--t-lg);font-weight:400;color:var(--ink);transition:color .2s ease;text-wrap:balance;
+  }
+  .faq summary:hover{color:var(--indigo)}
+  .faq summary::after{
+    content:"";flex:none;margin-inline-start:auto;width:15px;height:15px;margin-top:9px;
+    background:currentColor;transition:rotate .35s cubic-bezier(.2,.8,.2,1);
+    -webkit-mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 5v14M5 12h14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/></svg>") center/contain no-repeat;
+    mask:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path d='M12 5v14M5 12h14' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/></svg>") center/contain no-repeat;
+  }
+  .faq details[open] summary::after{rotate:135deg}
+  .faq-body{padding-bottom:24px;color:var(--ink-2);font-size:var(--t-sm);max-width:70ch}
+  @supports (interpolate-size:allow-keywords){
+    .faq details::details-content{
+      block-size:0;overflow:clip;
+      transition:block-size .42s cubic-bezier(.2,.8,.2,1),content-visibility .42s allow-discrete;
+    }
+    .faq details[open]::details-content{block-size:auto}
+  }
+
+  /* --- localização --- */
+  .nap{list-style:none;padding:0;margin-top:30px;display:grid}
+  .nap li{padding-block:18px;border-top:1px solid var(--line-soft);font-size:var(--t-sm);color:var(--ink-2)}
+  .nap strong{
+    display:block;font-size:var(--t-xs);letter-spacing:.18em;text-transform:uppercase;
+    color:var(--indigo);font-weight:400;margin-bottom:7px;
+  }
+  .nap a{text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s}
+  .nap a:hover{border-color:var(--indigo)}
+
+  /* --- rodapé --- */
+  .site-foot{background:var(--ink);color:#C9CCDC;padding-block:clamp(54px,7vw,84px) 34px;position:relative}
+  .site-foot::before{content:"";position:absolute;inset:0 0 auto;height:2px;background:var(--brand)}
+  .foot-grid{display:grid;gap:clamp(32px,4vw,54px)}
+  @media(min-width:860px){.foot-grid{grid-template-columns:1.5fr 1fr 1fr}}
+  .site-foot h4{
+    font-family:var(--f-sans);font-size:var(--t-xs);letter-spacing:.18em;text-transform:uppercase;
+    color:#7F8499;font-weight:400;margin-bottom:16px;
+  }
+  .site-foot a{text-decoration:none;transition:color .2s}
+  .site-foot a:hover{color:#fff}
+  .foot-links{list-style:none;padding:0;display:grid;gap:11px;font-size:var(--t-sm)}
+  .foot-logo{width:60px;margin-bottom:18px;filter:brightness(0) invert(1);opacity:.92}
+  .foot-bottom{
+    margin-top:clamp(38px,5vw,60px);padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+    display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;
+    font-size:var(--t-xs);color:#7F8499;
+  }
+
+  /* --- whatsapp --- */
+  .wa{
+    position:fixed;right:clamp(16px,2.5vw,26px);z-index:70;
+    bottom:calc(clamp(16px,2.5vw,26px) + env(safe-area-inset-bottom,0px));
+    width:58px;height:58px;border-radius:50%;background:#1FA855;
+    display:grid;place-items:center;
+    box-shadow:0 14px 34px -12px rgba(31,168,85,.62);
+    transition:transform .3s cubic-bezier(.2,.8,.2,1);
+  }
+  .wa:hover{transform:scale(1.08)}
+  .wa svg{width:30px;height:30px;fill:#fff}
+}
+
+/* ===================== MOVIMENTO ===================== */
+@layer motion{
+  @media(prefers-reduced-motion:no-preference){
+    @supports (animation-timeline:view()){
+      .reveal{animation:reveal linear both;animation-timeline:view();animation-range:entry 4% cover 24%}
+      @keyframes reveal{from{opacity:0;translate:0 28px}to{opacity:1;translate:none}}
+      .reveal-media{animation:revealMedia linear both;animation-timeline:view();animation-range:entry 0% cover 36%}
+      @keyframes revealMedia{from{opacity:0;clip-path:inset(12% 0 0 0);scale:1.03}to{opacity:1;clip-path:inset(0);scale:1}}
+    }
+    @supports (animation-timeline:scroll()){
+      .site-head{animation:headShrink linear both;animation-timeline:scroll(root block);animation-range:0 160px}
+      @keyframes headShrink{to{padding-block:9px;background:color-mix(in oklab,var(--paper) 95%,transparent)}}
+      .brand img{animation:markShrink linear both;animation-timeline:scroll(root block);animation-range:0 160px}
+      @keyframes markShrink{to{width:34px;height:34px}}
+    }
+    .hero-in{animation:heroIn .9s cubic-bezier(.2,.8,.2,1) both}
+    .hero-in--late{animation-delay:.14s}
+    @keyframes heroIn{from{opacity:0;translate:0 22px}to{opacity:1;translate:none}}
+    .ticker-track{animation:slide 46s linear infinite}
+    @keyframes slide{to{translate:-50% 0}}
+    .plan{animation:hue 18s ease-in-out infinite alternate}
+    @keyframes hue{to{--ang:155deg}}
+  }
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+}
+</style>
+</head>
+<body>
+
+<!-- GTM · parte 2 (cole o noscript do container aqui) -->
+
+<div class="mesh" aria-hidden="true"></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="site-head">
+  <div class="wrap head-in">
+    <a class="brand" href="#topo" aria-label="Franciele Telles, início">
+      <img src="img/logo-mark.png" alt="" width="42" height="42">
+      <span class="brand-txt"><b>Franciele Telles</b><span>Saúde &amp; Bem-Estar</span></span>
+    </a>
+    <nav class="site-nav" aria-label="Principal">
+      <a href="#tratamentos">Tratamentos</a>
+      <a href="#sobre">A Franciele</a>
+      <a href="#plano">Plano mensal</a>
+      <a href="#avaliacoes">Avaliações</a>
+      <a href="#onde">Onde fica</a>
+    </nav>
+    <a class="btn btn--brand btn--sm head-cta" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-wa="cabecalho" target="_blank" rel="noopener">Agendar</a>
+  </div>
+</header>
+
+<main id="topo">
+
+  <!-- ===================== HERO ===================== -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-in">
+        <p class="eyebrow">Saúde &amp; Bem-Estar · Flores da Cunha</p>
+        <h1>Estética e terapias de spa <span class="grad-text ital">no seu tempo</span></h1>
+        <p class="lead">Estética facial, estética corporal e massoterapia no Centro da cidade. Aqui a atenção é toda sua: é a Franciele que te recebe e conduz a sessão inteira, com calma e no tempo que o seu corpo pedir.</p>
+        <div class="actions">
+          <a class="btn btn--brand" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-wa="hero" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm5.5 12.4c-.3-.2-1.8-.9-2-1s-.5-.1-.7.1c-.2.3-.8 1-1 1.2s-.4.2-.7 0c-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1s0-.5.1-.6l.5-.6c.1-.2.2-.3.3-.5s0-.4 0-.5c0-.2-.7-1.6-.9-2.2s-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4s-1 1-1 2.5 1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.2.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4s.2-1.3.2-1.4c-.1-.1-.3-.2-.6-.3Z"/></svg>
+            Agendar pelo WhatsApp
+          </a>
+          <a class="btn btn--line" href="#tratamentos">Ver os tratamentos</a>
+        </div>
+      </div>
+
+      <div class="hero-media hero-in hero-in--late">
+        <img
+          src="img/franciele-telles-clinica-estetica-flores-da-cunha-1121.webp"
+          srcset="img/franciele-telles-clinica-estetica-flores-da-cunha-800.webp 800w,
+                  img/franciele-telles-clinica-estetica-flores-da-cunha-1121.webp 1121w"
+          sizes="(min-width: 920px) 44vw, 92vw"
+          width="1121" height="1402"
+          fetchpriority="high" decoding="async"
+          alt="Franciele Telles recebendo uma cliente na porta da clínica de estética em Flores da Cunha">
+        <div class="hero-badge">
+          <b>5,0</b>
+          <div>
+            <div class="stars" aria-hidden="true">★★★★★</div>
+            <span>31 avaliações no Google</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TICKER ===================== -->
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker-track">
+      <span>Limpeza de pele</span><span>Drenagem linfática</span><span>Massagem relaxante</span><span>Peeling de diamante</span><span>Pedras quentes</span><span>Day spa</span><span>Massagem terapêutica</span><span>Endermologia</span><span>Escalda-pés</span><span>Reiki</span>
+      <span>Limpeza de pele</span><span>Drenagem linfática</span><span>Massagem relaxante</span><span>Peeling de diamante</span><span>Pedras quentes</span><span>Day spa</span><span>Massagem terapêutica</span><span>Endermologia</span><span>Escalda-pés</span><span>Reiki</span>
+    </div>
+  </div>
+
+  <!-- ===================== MANIFESTO + NÚMEROS ===================== -->
+  <section>
+    <div class="wrap sec-head reveal">
+      <h2 class="manifesto" style="margin:0">Cada atendimento tem <span class="grad-text ital">o tempo que precisa ter</span>.</h2>
+      <div>
+        <p class="lead">A clínica atende no Centro de Flores da Cunha desde 2016, sempre um atendimento por vez. É a Franciele que te recebe, conduz a sessão inteira e acompanha o resultado depois, e é isso que as clientes mais comentam nas avaliações.</p>
+        <p class="muted">Estética, massoterapia e educação física reunidas na mesma formação, o que ajuda a enxergar pele, corpo e movimento como uma coisa só, e não como três assuntos separados.</p>
+      </div>
+    </div>
+
+    <div class="wrap stats mt-l reveal">
+      <div class="stat"><b>5,0</b><span>Nota no Google, em 31 avaliações</span></div>
+      <div class="stat"><b>2016</b><span>Atendendo em Flores da Cunha desde</span></div>
+      <div class="stat"><b>22</b><span>Tratamentos entre face, corpo e spa</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== TRATAMENTOS ===================== -->
+  <section id="tratamentos" class="tone">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:clamp(40px,5vw,68px)">
+        <div>
+          <p class="eyebrow">Tratamentos</p>
+          <h2>Três frentes de cuidado, <span class="grad-text ital">sob o mesmo olhar</span></h2>
+        </div>
+        <p class="lead">Você não precisa chegar sabendo o nome do procedimento. Me conta o que está te incomodando e a gente escolhe junto o caminho que faz sentido para a sua pele, para o seu corpo e para o tempo que você tem.</p>
+      </div>
+
+      <!-- eixo 1 -->
+      <div class="axis reveal">
+        <div class="axis-head">
+          <div>
+            <span class="axis-num">01</span>
+            <h3>Estética facial</h3>
+          </div>
+          <p class="muted">Limpeza, renovação e hidratação da pele, com o protocolo escolhido conforme o seu tipo de pele e o que mais te incomoda hoje.</p>
+        </div>
+        <div class="svcs">
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Limpeza%20de%20pele%20profunda." data-wa="servico-limpeza-de-pele-profunda" target="_blank" rel="noopener" aria-label="Perguntar sobre Limpeza de pele profunda no WhatsApp">
+            <span class="svc-name">Limpeza de pele profunda</span>
+            <span class="svc-desc">Higienização, extração e hidratação. Indicada quando a pele está congestionada, com cravos ou oleosa, e você sai com ela leve de novo.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Peeling%20de%20diamante." data-wa="servico-peeling-de-diamante" target="_blank" rel="noopener" aria-label="Perguntar sobre Peeling de diamante no WhatsApp">
+            <span class="svc-name">Peeling de diamante</span>
+            <span class="svc-desc">Esfoliação suave que renova a superfície da pele e ajuda a suavizar textura irregular e marquinhas superficiais.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Revitaliza%C3%A7%C3%A3o%20facial." data-wa="servico-revitalizacao-facial" target="_blank" rel="noopener" aria-label="Perguntar sobre Revitalização facial no WhatsApp">
+            <span class="svc-name">Revitalização facial</span>
+            <span class="svc-desc">Protocolo de hidratação e estímulo, pensado para pele desidratada, cansada ou sem aquele viço de sempre.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Drenagem%20linf%C3%A1tica%20facial." data-wa="servico-drenagem-linfatica-facial" target="_blank" rel="noopener" aria-label="Perguntar sobre Drenagem linfática facial no WhatsApp">
+            <span class="svc-name">Drenagem linfática facial</span>
+            <span class="svc-desc">Toque manual bem suave, usado para aliviar a sensação de inchaço e trabalhar o contorno do rosto.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="mt-m">
+          <a class="btn btn--line btn--sm" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20(est%C3%A9tica%20facial)%20e%20gostaria%20de%20agendar." data-wa="estetica-facial" target="_blank" rel="noopener">Conversar sobre estética facial</a>
+        </div>
+      </div>
+
+      <!-- eixo 2 -->
+      <div class="axis reveal">
+        <div class="axis-head">
+          <div>
+            <span class="axis-num">02</span>
+            <h3>Estética corporal</h3>
+          </div>
+          <p class="muted">Protocolos manuais e com equipamentos, conduzidos em sequência de sessões, acompanhando a sua evolução de perto.</p>
+        </div>
+        <div class="svcs">
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Drenagem%20linf%C3%A1tica%20modeladora." data-wa="servico-drenagem-linfatica-modeladora" target="_blank" rel="noopener" aria-label="Perguntar sobre Drenagem linfática modeladora no WhatsApp">
+            <span class="svc-name">Drenagem linfática modeladora</span>
+            <span class="svc-desc">Manobras que estimulam o sistema linfático, trabalhando retenção e aquela sensação de inchaço no fim do dia.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Drenagem%20p%C3%B3s-operat%C3%B3ria." data-wa="servico-drenagem-pos-operatoria" target="_blank" rel="noopener" aria-label="Perguntar sobre Drenagem pós-operatória no WhatsApp">
+            <span class="svc-name">Drenagem pós-operatória</span>
+            <span class="svc-desc">Acompanhamento no pós-cirúrgico, com a técnica ajustada a cada fase da recuperação e respeitando a orientação médica.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Massagem%20modeladora." data-wa="servico-massagem-modeladora" target="_blank" rel="noopener" aria-label="Perguntar sobre Massagem modeladora no WhatsApp">
+            <span class="svc-name">Massagem modeladora</span>
+            <span class="svc-desc">Manobras mais firmes, voltadas ao contorno corporal. Costuma render mais quando feita em protocolo de várias sessões.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Endermologia." data-wa="servico-endermologia" target="_blank" rel="noopener" aria-label="Perguntar sobre Endermologia no WhatsApp">
+            <span class="svc-name">Endermologia</span>
+            <span class="svc-desc">Terapia mecânica sobre o tecido, usada nos protocolos de celulite e de flacidez.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Vacuoterapia." data-wa="servico-vacuoterapia" target="_blank" rel="noopener" aria-label="Perguntar sobre Vacuoterapia no WhatsApp">
+            <span class="svc-name">Vacuoterapia</span>
+            <span class="svc-desc">Terapia por sucção controlada, aplicada dentro de protocolos corporais combinados.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Lipocavita%C3%A7%C3%A3o." data-wa="servico-lipocavitacao" target="_blank" rel="noopener" aria-label="Perguntar sobre Lipocavitação no WhatsApp">
+            <span class="svc-name">Lipocavitação</span>
+            <span class="svc-desc">Ultrassom estético aplicado em protocolos voltados à gordura localizada.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Detox%20corporal." data-wa="servico-detox-corporal" target="_blank" rel="noopener" aria-label="Perguntar sobre Detox corporal no WhatsApp">
+            <span class="svc-name">Detox corporal</span>
+            <span class="svc-desc">Combinação de técnicas manuais, com foco na sensação de leveza e renovação depois da sessão.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Plataforma%20vibrat%C3%B3ria." data-wa="servico-plataforma-vibratoria" target="_blank" rel="noopener" aria-label="Perguntar sobre Plataforma vibratória no WhatsApp">
+            <span class="svc-name">Plataforma vibratória</span>
+            <span class="svc-desc">Sessão curta sobre a plataforma, usada como complemento dos protocolos corporais.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="mt-m">
+          <a class="btn btn--line btn--sm" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20(est%C3%A9tica%20corporal)%20e%20gostaria%20de%20agendar." data-wa="estetica-corporal" target="_blank" rel="noopener">Conversar sobre estética corporal</a>
+        </div>
+      </div>
+
+      <!-- eixo 3 -->
+      <div class="axis reveal">
+        <div class="axis-head">
+          <div>
+            <span class="axis-num">03</span>
+            <h3>Massagens e terapias de spa</h3>
+          </div>
+          <p class="muted">Do alívio de uma tensão pontual ao ritual de uma tarde inteira. Sala silenciosa, aroma no ambiente e o tempo que a sessão pedir.</p>
+        </div>
+        <div class="svcs">
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Massagem%20relaxante." data-wa="servico-massagem-relaxante" target="_blank" rel="noopener" aria-label="Perguntar sobre Massagem relaxante no WhatsApp">
+            <span class="svc-name">Massagem relaxante</span>
+            <span class="svc-desc">Toque suave e ritmado, para soltar o corpo e tirar o peso do dia das suas costas.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Massagem%20terap%C3%AAutica." data-wa="servico-massagem-terapeutica" target="_blank" rel="noopener" aria-label="Perguntar sobre Massagem terapêutica no WhatsApp">
+            <span class="svc-name">Massagem terapêutica</span>
+            <span class="svc-desc">Trabalho focado nos pontos de tensão, principalmente pescoço, ombros e lombar, que é onde o estresse costuma se instalar.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Massagem%20com%20pedras%20quentes." data-wa="servico-massagem-com-pedras-quentes" target="_blank" rel="noopener" aria-label="Perguntar sobre Massagem com pedras quentes no WhatsApp">
+            <span class="svc-name">Massagem com pedras quentes</span>
+            <span class="svc-desc">O calor das pedras ajuda a musculatura a soltar antes mesmo da pressão chegar. Uma das preferidas de quem chega cansada.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Massagem%20com%20bambu." data-wa="servico-massagem-com-bambu" target="_blank" rel="noopener" aria-label="Perguntar sobre Massagem com bambu no WhatsApp">
+            <span class="svc-name">Massagem com bambu</span>
+            <span class="svc-desc">Roletes de bambu aquecidos, para quem gosta de uma pressão mais firme e profunda.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Shiatsu." data-wa="servico-shiatsu" target="_blank" rel="noopener" aria-label="Perguntar sobre Shiatsu no WhatsApp">
+            <span class="svc-name">Shiatsu</span>
+            <span class="svc-desc">Técnica oriental de pressão em pontos específicos, feita com você vestida e sem uso de óleo.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Libera%C3%A7%C3%A3o%20miofascial." data-wa="servico-liberacao-miofascial" target="_blank" rel="noopener" aria-label="Perguntar sobre Liberação miofascial no WhatsApp">
+            <span class="svc-name">Liberação miofascial</span>
+            <span class="svc-desc">Técnica manual para soltar tensões na fáscia e na musculatura, com trabalho bem localizado.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Escalda-p%C3%A9s." data-wa="servico-escalda-pes" target="_blank" rel="noopener" aria-label="Perguntar sobre Escalda-pés no WhatsApp">
+            <span class="svc-name">Escalda-pés</span>
+            <span class="svc-desc">Ritual de imersão dos pés com ervas e sais. Pode ser sozinho ou como abertura de outra sessão, e é um jeito gostoso de começar.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Quick%20massage." data-wa="servico-quick-massage" target="_blank" rel="noopener" aria-label="Perguntar sobre Quick massage no WhatsApp">
+            <span class="svc-name">Quick massage</span>
+            <span class="svc-desc">Sessão curta na cadeira, concentrada em costas, ombros e pescoço. Cabe no intervalo do trabalho.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Reiki." data-wa="servico-reiki" target="_blank" rel="noopener" aria-label="Perguntar sobre Reiki no WhatsApp">
+            <span class="svc-name">Reiki</span>
+            <span class="svc-desc">Terapia energética conduzida em silêncio, com você vestida e deitada, sem nenhuma pressa.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="svc" href="https://wa.me/5551991299114?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20saber%20sobre%20Day%20spa." data-wa="servico-day-spa" target="_blank" rel="noopener" aria-label="Perguntar sobre Day spa no WhatsApp">
+            <span class="svc-name">Day spa</span>
+            <span class="svc-desc">Várias terapias combinadas numa visita só, para você sozinha ou junto com uma amiga. É o presente que mais pedem aqui.</span>
+            <svg class="svc-go" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+        <div class="mt-m">
+          <a class="btn btn--line btn--sm" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20(massagens%20e%20terapias%20de%20spa)%20e%20gostaria%20de%20agendar." data-wa="massagens-spa" target="_blank" rel="noopener">Conversar sobre massagens e spa</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SOBRE ===================== -->
+  <section id="sobre">
+    <div class="wrap split split--wide-right">
+      <div class="about-media reveal-media">
+        <img
+          src="img/franciele-telles-esteticista-flores-da-cunha-1200.webp"
+          srcset="img/franciele-telles-esteticista-flores-da-cunha-800.webp 800w,
+                  img/franciele-telles-esteticista-flores-da-cunha-1200.webp 1087w"
+          sizes="(min-width: 920px) 40vw, 92vw"
+          width="1087" height="1358" loading="lazy" decoding="async"
+          alt="Franciele Telles, esteticista e massoterapeuta, na sala de atendimento da clínica">
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Quem atende você</p>
+        <h2 style="margin-block:20px 22px">Prazer, <span class="grad-text ital">sou a Franciele</span></h2>
+        <p class="lead">Quem te recebe na porta é a mesma pessoa que conduz a sua sessão do início ao fim. Ninguém passa o seu caso adiante, e é justamente esse cuidado que as clientes repetem nas avaliações.</p>
+        <p class="muted">Reuni três formações que costumam andar separadas: estética, massoterapia e educação física. Na prática isso muda a leitura de cada caso, porque a pele, o corpo e o movimento passam a ser olhados juntos, e não como assuntos isolados.</p>
+        <!-- CONFIRMAR: nomes exatos dos cursos, instituições e registro profissional -->
+        <ul class="creds">
+          <li>Formação em Estética</li>
+          <li>Formação em Massoterapia</li>
+          <li>Formação em Educação Física</li>
+          <li>Atendendo em Flores da Cunha desde 2016</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PLANO MENSAL ===================== -->
+  <section id="plano" style="padding-block:0">
+    <div class="wrap">
+      <div class="plan reveal">
+        <div class="plan-grid">
+          <div>
+            <p class="eyebrow">Plano mensal</p>
+            <h2 style="margin-block:20px 22px">Constância vale mais <span class="ital">do que intensidade</span></h2>
+            <p>A pele e o corpo respondem a cuidado regular, não a uma sessão isolada de vez em quando. No plano mensal o seu horário fica reservado todo mês, esperando por você, sem precisar correr atrás de agenda.</p>
+            <p style="margin-bottom:30px">Sem contrato, sem multa e sem fidelidade. Se precisar pausar em algum mês, é só me avisar.</p>
+            <a class="btn btn--light" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20saber%20como%20funciona%20o%20plano%20mensal." data-wa="plano-mensal" target="_blank" rel="noopener">Quero conhecer o plano mensal</a>
+          </div>
+          <ul class="plan-list">
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Uma sessão por mês, sempre no seu horário</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Prioridade na agenda, inclusive nas datas concorridas</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Condições especiais nos complementos de sessão</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Acompanhamento da sua evolução, mês a mês</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Orientação de cuidado entre uma sessão e outra</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sem fidelidade, você pausa quando quiser</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PRIMEIRA VISITA ===================== -->
+  <section id="primeira-visita">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:clamp(38px,4.5vw,62px)">
+        <div>
+          <p class="eyebrow">Como funciona</p>
+          <h2>Se é a sua <span class="grad-text ital">primeira vez</span></h2>
+        </div>
+        <p class="lead">Muita gente chega aqui sem nunca ter feito estética ou massagem, e isso é completamente normal. Para tirar qualquer receio, este é o caminho do começo ao fim. Nada acontece sem você entender antes.</p>
+      </div>
+      <div class="steps reveal">
+        <div class="step">
+          <h3>A gente conversa antes</h3>
+          <p>Você me conta pelo WhatsApp o que está sentindo ou o que gostaria de cuidar. Eu já te digo o que faz sentido e o que não faz, sem compromisso nenhum.</p>
+        </div>
+        <div class="step">
+          <h3>Avaliação com calma</h3>
+          <p>Na chegada a gente senta e conversa sobre a sua rotina, o seu histórico e o que você espera, antes de qualquer procedimento começar.</p>
+        </div>
+        <div class="step">
+          <h3>A sua sessão</h3>
+          <p>A sala fica reservada só para você, sem interrupção e sem ninguém batendo na porta porque o horário acabou.</p>
+        </div>
+        <div class="step">
+          <h3>E depois</h3>
+          <p>Você sai sabendo o que esperar nos próximos dias, o que observar e se vale voltar, em quanto tempo e por quê.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== AVALIAÇÕES ===================== -->
+  <section id="avaliacoes" class="tone">
+    <div class="wrap">
+      <div class="sec-head reveal" style="margin-bottom:clamp(36px,4vw,56px)">
+        <div>
+          <p class="eyebrow">Avaliações</p>
+          <h2>O que elas <span class="grad-text ital">contam depois</span></h2>
+        </div>
+        <p class="lead">Avaliações publicadas por clientes no Perfil da Empresa no Google, reproduzidas aqui exatamente como foram escritas.</p>
+      </div>
+
+      <div class="revs reveal">
+        <blockquote class="rev">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>Melhor massagem da vida! Um atendimento impecável, uma profissional incrível e um ambiente extremamente acolhedor. Você é maravilhosa, Fran!</p>
+          <cite>Ana Júlia Macedo</cite>
+        </blockquote>
+        <blockquote class="rev">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>Atendimento e espaço maravilhoso e aconchegante! É mais que um momento de relaxamento ou estético. A Fran consegue captar a necessidade de cada cliente!! É tudo perfeito! Super indico!!!</p>
+          <cite>Joseane Garibaldi</cite>
+        </blockquote>
+        <blockquote class="rev">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>Ganhei um combo relaxante com massagem de pedras quentes, escalda pés e reiki e tive uma experiência maravilhosa. O ambiente é super acolhedor e a Fran uma querida. Pretendo voltar e indico muito!</p>
+          <cite>Morgana Piccoli Cavalli</cite>
+        </blockquote>
+        <blockquote class="rev">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>Ótimo atendimento, com cuidado, atenção e profissionalismo. Clínica acolhedora e com ambiente agradável. A profissional demonstra muito amor pelo que faz. Recomendo muito!</p>
+          <cite>Helena de Fátima Vieira de Sá</cite>
+        </blockquote>
+        <blockquote class="rev">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>Atendimento excelente, com cuidado, carinho e atenção aos detalhes. Profissional incrível, alto astral, realizou os procedimentos com muito profissionalismo. Super recomendo!</p>
+          <cite>Lilinquer Vieira</cite>
+        </blockquote>
+        <blockquote class="rev">
+          <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+          <p>Excelente! Uma querida e a limpeza de pele com peeling de diamante foi impecável. Recomendo!</p>
+          <cite>Ketley Reis</cite>
+        </blockquote>
+      </div>
+
+      <div class="actions mt-m reveal">
+        <a class="btn btn--line btn--sm" href="https://www.google.com/maps/search/?api=1&query=Franciele+Telles+Cl%C3%ADnica+Est%C3%A9tica+e+Terapias+de+Spa%27s+Flores+da+Cunha" target="_blank" rel="noopener">Ler as 31 avaliações</a>
+        <a class="btn btn--line btn--sm" href="https://g.page/r/CeYK-a6wc2ntEBM/review" target="_blank" rel="noopener">Deixar a sua avaliação</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== INSTAGRAM ===================== -->
+  <section id="instagram">
+    <div class="wrap">
+      <div class="ig-call reveal">
+        <div>
+          <p class="eyebrow">No dia a dia</p>
+          <h2 style="margin-block:18px 16px">Acompanhe no <span class="grad-text ital">Instagram</span></h2>
+          <p class="lead" style="max-width:48ch">É lá que saem os bastidores dos atendimentos, as novidades da agenda e as dicas de cuidado para o dia a dia. Me segue para ficar por dentro.</p>
+          <p class="ig-handle">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/></svg>
+            @francieletellesclinica
+          </p>
+        </div>
+        <div class="actions">
+          <a class="btn btn--brand" href="https://www.instagram.com/francieletellesclinica/" target="_blank" rel="noopener">Seguir no Instagram</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== DÚVIDAS ===================== -->
+  <section id="duvidas" class="tone">
+    <div class="wrap-narrow">
+      <div class="reveal" style="margin-bottom:clamp(28px,3.5vw,42px)">
+        <p class="eyebrow">Dúvidas frequentes</p>
+        <h2 style="margin-block:18px 0">Perguntas que <span class="grad-text ital">chegam sempre</span></h2>
+      </div>
+      <div class="faq reveal">
+        <details name="faq" open>
+          <summary>Preciso agendar ou posso passar na hora?</summary>
+          <div class="faq-body">Prefiro com hora marcada, e o motivo é simples: assim a sala e o tempo ficam reservados só para você, sem ninguém esperando. É só me chamar no WhatsApp, no (51) 99129 9114, que a gente acerta o melhor dia.</div>
+        </details>
+        <details name="faq">
+          <summary>Quanto custa uma sessão?</summary>
+          <div class="faq-body">O valor muda conforme o procedimento e quantas sessões o seu caso pede, então prefiro te passar depois de entender o que você precisa, para não te dar um número que não serve. Me chama no WhatsApp, me conta o seu objetivo e eu te mando certinho, sem compromisso.</div>
+        </details>
+        <details name="faq">
+          <summary>Nunca fiz estética. Como é a primeira vez?</summary>
+          <div class="faq-body">Fica tranquila, acontece bastante. A primeira visita começa com uma conversa, não com um procedimento. A gente fala sobre a sua rotina, o seu histórico e o que você espera, e só depois decidimos juntas o que faz sentido naquele dia.</div>
+        </details>
+        <details name="faq">
+          <summary>Quantas sessões eu preciso fazer?</summary>
+          <div class="faq-body">Depende do seu objetivo e do ponto de partida. Alguns cuidados, como uma limpeza de pele ou uma massagem relaxante, já resolvem em sessão única. Os protocolos corporais costumam render mais em sequência, e a gente combina isso na avaliação, sem pacote empurrado.</div>
+        </details>
+        <details name="faq">
+          <summary>Atende homens?</summary>
+          <div class="faq-body">Não, o atendimento aqui é exclusivo para mulheres. É assim desde o começo, e é o que me permite cuidar do ambiente e do acolhimento pensando inteiramente nelas.</div>
+        </details>
+        <details name="faq">
+          <summary>Posso fazer drenagem linfática na gravidez?</summary>
+          <div class="faq-body">Depende do período da gestação e da liberação do seu médico. Me chama antes de agendar que a gente conversa sobre o seu caso com calma.</div>
+        </details>
+        <details name="faq">
+          <summary>Fazem drenagem pós-operatória?</summary>
+          <div class="faq-body">Fazemos sim, com a técnica ajustada a cada fase da recuperação. Traga a orientação do seu cirurgião para que o protocolo respeite exatamente o que foi indicado para você.</div>
+        </details>
+        <!-- CONFIRMAR: política de cancelamento e atraso. Texto abaixo é rascunho. -->
+        <details name="faq">
+          <summary>Preciso desmarcar. Como faço?</summary>
+          <div class="faq-body">Sem problema, imprevisto acontece. É só me avisar pelo WhatsApp com pelo menos 24 horas de antecedência e a gente remarca sem nenhum custo. Como atendo uma pessoa por vez, esse aviso me ajuda muito a oferecer o horário para outra cliente.</div>
+        </details>
+        <details name="faq">
+          <summary>Atende quem é de fora de Flores da Cunha?</summary>
+          <div class="faq-body">Claro. Recebo clientes de Nova Pádua, Antônio Prado, Caxias do Sul e de toda a região. A clínica fica no Centro, com acesso fácil.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ONDE FICA ===================== -->
+  <section id="onde">
+    <div class="wrap split split--wide-left">
+      <div class="reveal">
+        <p class="eyebrow">Onde fica</p>
+        <h2 style="margin-block:20px 18px">No Centro de <span class="grad-text ital">Flores da Cunha</span></h2>
+        <p class="lead">A clínica fica na Rua Borges de Medeiros, a rua principal do Centro, na sala 23. Se ficar em dúvida ao chegar, me chama no WhatsApp que eu te oriento.</p>
+        <ul class="nap">
+          <li>
+            <strong>Endereço</strong>
+            Rua Borges de Medeiros, 1881, Sala 23<br>Centro, Flores da Cunha, RS, 95270-000
+          </li>
+          <li>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-wa="onde-fica" target="_blank" rel="noopener">(51) 99129 9114</a>
+          </li>
+          <!-- CONFIRMAR horário real, aqui e no JSON-LD -->
+          <li>
+            <strong>Horários</strong>
+            Segunda a sexta, com hora marcada<br>Sábados conforme a disponibilidade da agenda
+          </li>
+          <li>
+            <strong>Como chegar</strong>
+            <a href="https://www.google.com/maps/search/?api=1&query=Rua+Borges+de+Medeiros+1881+Flores+da+Cunha+RS" target="_blank" rel="noopener">Abrir no Google Maps</a>
+          </li>
+        </ul>
+      </div>
+      <figure class="reveal-media">
+        <img class="shot shot--wide"
+          src="img/clinica-estetica-flores-da-cunha-sala-atendimento-1600.webp"
+          srcset="img/clinica-estetica-flores-da-cunha-sala-atendimento-900.webp 900w,
+                  img/clinica-estetica-flores-da-cunha-sala-atendimento-1600.webp 1448w"
+          sizes="(min-width: 920px) 44vw, 92vw"
+          width="1448" height="905" loading="lazy" decoding="async"
+          alt="Sala de atendimento da clínica, com maca preparada, equipamentos de estética e bancada de produtos">
+        <figcaption>A sala, no Centro de Flores da Cunha</figcaption>
+      </figure>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <img class="foot-logo" src="img/logo-mark.png" alt="Franciele Telles" width="60" height="60" loading="lazy">
+        <p style="color:#9DA2B6;font-size:var(--t-sm);max-width:42ch">Clínica de estética e terapias de spa no Centro de Flores da Cunha. Estética facial, estética corporal, massoterapia e terapias de spa, com atendimento individual e hora marcada.</p>
+      </div>
+      <div>
+        <h4>Tratamentos</h4>
+        <ul class="foot-links">
+          <li><a href="#tratamentos">Estética facial</a></li>
+          <li><a href="#tratamentos">Estética corporal</a></li>
+          <li><a href="#tratamentos">Massagens e terapias de spa</a></li>
+          <li><a href="#plano">Plano mensal</a></li>
+          <li><a href="#primeira-visita">Primeira visita</a></li>
+          <li><a href="#duvidas">Dúvidas frequentes</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul class="foot-links">
+          <li><a href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20hor%C3%A1rio." data-wa="rodape" target="_blank" rel="noopener">WhatsApp (51) 99129 9114</a></li>
+          <li><a href="https://www.instagram.com/francieletellesclinica/" target="_blank" rel="noopener">@francieletellesclinica</a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&query=Rua+Borges+de+Medeiros+1881+Flores+da+Cunha+RS" target="_blank" rel="noopener">Google Maps</a></li>
+          <li style="color:#9DA2B6">Rua Borges de Medeiros, 1881<br>Sala 23, Centro<br>Flores da Cunha, RS</li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>Franciele Telles · Saúde &amp; Bem-Estar</span>
+      <span>Resultados de tratamentos estéticos podem variar de pessoa para pessoa.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5551991299114?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20cl%C3%ADnica." data-wa="flutuante" target="_blank" rel="noopener" aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.87 9.87 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.21 8.21 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.06s.89 2.39 1.01 2.56c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
+</a>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DaySpa",
+      "@id": "https://francieletelles.com.br/#clinica",
+      "name": "Franciele Telles - Clínica Estética e Terapias de Spa's",
+      "alternateName": "Franciele Telles Saúde & Bem-Estar",
+      "url": "https://francieletelles.com.br/",
+      "image": "https://francieletelles.com.br/img/clinica-estetica-flores-da-cunha-sala-atendimento-1600.webp",
+      "logo": "https://francieletelles.com.br/img/logo-franciele-telles.png",
+      "telephone": "+55 51 99129-9114",
+      "description": "Clínica de estética facial, estética corporal, massoterapia e terapias de spa no Centro de Flores da Cunha, com atendimento individual e hora marcada.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Rua Borges de Medeiros, 1881, Sala 23",
+        "addressLocality": "Flores da Cunha",
+        "addressRegion": "RS",
+        "postalCode": "95270-000",
+        "addressCountry": "BR"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Flores da Cunha" },
+        { "@type": "City", "name": "Nova Pádua" },
+        { "@type": "City", "name": "Antônio Prado" },
+        { "@type": "City", "name": "Caxias do Sul" }
+      ],
+      "sameAs": ["https://www.instagram.com/francieletellesclinica/"],
+      "founder": { "@id": "https://francieletelles.com.br/#franciele" },
+      "employee": { "@id": "https://francieletelles.com.br/#franciele" },
+      "openingHoursSpecification": [{
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+        "opens": "09:00",
+        "closes": "20:00"
+      }]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://francieletelles.com.br/#franciele",
+      "name": "Franciele Telles",
+      "jobTitle": "Esteticista e massoterapeuta",
+      "image": "https://francieletelles.com.br/img/franciele-telles-esteticista-flores-da-cunha-1200.webp",
+      "worksFor": { "@id": "https://francieletelles.com.br/#clinica" }
+    },
+    {
+      "@type": "Service",
+      "name": "Estética facial em Flores da Cunha",
+      "serviceType": "Estética facial",
+      "provider": { "@id": "https://francieletelles.com.br/#clinica" },
+      "areaServed": { "@type": "City", "name": "Flores da Cunha" }
+    },
+    {
+      "@type": "Service",
+      "name": "Estética corporal em Flores da Cunha",
+      "serviceType": "Estética corporal",
+      "provider": { "@id": "https://francieletelles.com.br/#clinica" },
+      "areaServed": { "@type": "City", "name": "Flores da Cunha" }
+    },
+    {
+      "@type": "Service",
+      "name": "Massoterapia e terapias de spa em Flores da Cunha",
+      "serviceType": "Massoterapia",
+      "provider": { "@id": "https://francieletelles.com.br/#clinica" },
+      "areaServed": { "@type": "City", "name": "Flores da Cunha" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://francieletelles.com.br/#site",
+      "url": "https://francieletelles.com.br/",
+      "name": "Franciele Telles",
+      "inLanguage": "pt-BR",
+      "publisher": { "@id": "https://francieletelles.com.br/#clinica" }
+    }
+  ]
+}
+</script>
+
+<script>
+(function () {
+  window.dataLayer = window.dataLayer || [];
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-wa]');
+    if (!a) return;
+    window.dataLayer.push({
+      event: 'whatsapp_click',
+      origem: a.getAttribute('data-wa'),
+      pagina: location.pathname
+    });
+  });
+
+  /* Fallback de revelação para navegadores sem scroll-driven animations. */
+  if (!CSS.supports('animation-timeline: view()') &&
+      !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var els = document.querySelectorAll('.reveal, .reveal-media');  /* hero fica de fora de propósito */
+    els.forEach(function (el) {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity .7s ease, transform .7s cubic-bezier(.2,.8,.2,1)';
+    });
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        en.target.style.opacity = '1';
+        en.target.style.transform = 'none';
+        io.unobserve(en.target);
+      });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    els.forEach(function (el) { io.observe(el); });
+  }
+})();
+</script>
+
+</body>
+</html>

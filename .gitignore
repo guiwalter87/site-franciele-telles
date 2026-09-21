@@ -1,0 +1,31 @@
+# macOS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+
+# Editor
+*.swp
+node_modules/
+
+# ---------------------------------------------------------------
+# O repositório é PÚBLICO, porque o GitHub Pages em conta gratuita
+# só publica a partir de repositório público. O que está abaixo fica
+# apenas na máquina, de propósito.
+# ---------------------------------------------------------------
+
+# Fotos originais, em alta e sem tratamento, incluindo as recebidas por WhatsApp.
+# O site usa as versões otimizadas em site/img/
+Fotos/
+
+# Arquivos de marca. As fontes têm licença própria e não devem ser
+# redistribuídas num repositório aberto. Os PNGs originais também ficam
+# fora, já o que o site precisa está em site/img/
+marca/
+
+# Notas internas do projeto, com pendências da cliente
+docs/pendencias.md
+
+# Prévia de 750 KB, gerada sob demanda e sem função no site publicado
+Previa-*.html

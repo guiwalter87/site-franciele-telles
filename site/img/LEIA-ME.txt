@@ -1,0 +1,27 @@
+IMAGENS DO SITE
+
+APLICADAS
+  franciele-telles-esteticista-flores-da-cunha-800.webp        hero, retrato 4:5
+  franciele-telles-esteticista-flores-da-cunha-1200.webp       hero, versão maior do srcset
+  franciele-telles-clinica-estetica-flores-da-cunha-800.webp   seção Sobre, recepção na porta 4:5
+  franciele-telles-clinica-estetica-flores-da-cunha-1121.webp  idem, versão maior
+  clinica-estetica-flores-da-cunha-sala-atendimento-900.webp   seção Onde fica, sala 16:10
+  clinica-estetica-flores-da-cunha-sala-atendimento-1600.webp  idem, versão maior
+  og-clinica-estetica-flores-da-cunha.jpg                      compartilhamento, 1200 x 630
+  logo-mark.png                                                símbolo, cabeçalho e favicon
+  logo-franciele-telles.png                                    lockup completo, para peças
+
+NÃO FALTA MAIS NADA
+  A galeria do Instagram foi substituída por uma chamada para seguir o perfil.
+  O motivo e os caminhos de upgrade estão em docs/instagram.md
+
+COMO TROCAR NO index.html
+  Substitua a div com classe "ph" inteira por:
+  <img class="shot" src="img/NOME.webp" alt="descrição da cena" loading="lazy"
+       width="1000" height="1000">
+
+PADRÃO ADOTADO
+  Formato webp, qualidade 82, dois tamanhos por foto com srcset e atributo sizes.
+  Sempre informar width e height no HTML, para não haver deslocamento de layout.
+  A foto do hero usa fetchpriority="high"; as demais usam loading="lazy".
+  Nome de arquivo sempre com o assunto mais a cidade.
